@@ -8,7 +8,7 @@ spec:
     controlPlane:
       tkr:
         reference:
-          name: v1.19.7---vmware.1-tkg.1.fc82c41
+          name: v1.20.7---vmware.1-tkg.1.7fb9067
       replicas: 1
       vmClass: best-effort-medium
       storageClass: vmc-workload-storage-policy-cluster-1
@@ -24,7 +24,7 @@ spec:
       - key: k1
         value: v1
         effect: NoSchedule
-    - replicas: 5
+    - replicas: 2
       name: np-2
       vmClass: best-effort-xsmall
       storageClass: vmc-workload-storage-policy-cluster-1
