@@ -3,7 +3,7 @@ set -o errexit
 set -o pipefail
 set -o nounset
 set -x
-for (( j=2; j<=50; j++ ))
+for (( j=3; j<=50; j++ ))
 do
 tkg_name="tkg-cluster${j}"
 if [ $j -lt 3 ]
