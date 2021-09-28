@@ -3,7 +3,7 @@ set -o errexit
 set -o pipefail
 set -o nounset
 set -x
-for (( i=1; i<=250; i++ ))
+for (( i=1; i<=800; i++ ))
 do
 echo "creating tkc namespace "
 kubectl create ns tkc-$i
