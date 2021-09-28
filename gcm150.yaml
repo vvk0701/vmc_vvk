@@ -1,4 +1,4 @@
-apiVersion: run.tanzu.vmware.com/v1alpha1
+apiVersion: run.tanzu.vmware.com/v1alpha2
 kind: TanzuKubernetesCluster
 metadata:
   name: {{MY_NAME}}
@@ -6,20 +6,36 @@ metadata:
 spec:
   topology:
     controlPlane:
-      count: 3
-      class: best-effort-large
-      storageClass: 'vmc-workload-storage-policy-cluster-1'
-    workers:
-      count: 150
-      class: best-effort-xsmall
-      storageClass: 'vmc-workload-storage-policy-cluster-1'
-  distribution:
-    version: v1.20.2+vmware.1-tkg.1.1d4f79a
+      tkr:
+        reference:
+          name: v1.20.7---vmware.1-tkg.1.7fb9067
+      replicas: 3
+      vmClass: best-effort-large
+      storageClass: vmc-workload-storage-policy-cluster-1
+    nodePools:
+    - replicas: 100
+      name: np-1
+      vmClass: best-effort-xsmall
+      storageClass: vmc-workload-storage-policy-cluster-1
+      labels:
+        k1: v1
+        k2: v2
+      taints:
+      - key: k1
+        value: v1
+        effect: NoSchedule
+    - replicas: 4
+      name: np-2
+      vmClass: best-effort-small
+      storageClass: vmc-workload-storage-policy-cluster-1
   settings:
     network:
       cni:
-        name: antrea
+        name: calico
       services:
-        cidrBlocks: ["198.51.100.0/12"]
+        cidrBlocks:
+        - 198.51.100.0/12
       pods:
-        cidrBlocks: ["192.0.2.0/16"]
+        cidrBlocks:
+        - 192.0.2.0/16
+      serviceDomain: cluster.local
