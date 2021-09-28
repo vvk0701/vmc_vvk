@@ -15,7 +15,8 @@ then
     template=`cat "gcm2_alpha2.yaml" |sed "s/{{MY_NAME}}/$tkg_name/g"`
     sleep_var='120'
 else [ $j -ge 45 ]
-    a=`expr 51 - $j`
+    a=3
+    a=a+`expr 51 - $j`
     tkg_ns="wcpns$a"
     template=`cat "gcm4.yaml" |sed "s/{{MY_NAME}}/$tkg_name/g" | sed "s/{{MY_NS}}/$tkg_ns/g"`
     sleep_var='120'
