@@ -1,0 +1,127 @@
+apiVersion: v1
+ 
+kind: Pod
+ 
+metadata:
+ 
+  name: pod-with-multiple-pvc
+ 
+spec:
+ 
+  volumes:
+ 
+    - name: task-pv-storage1
+ 
+      persistentVolumeClaim:
+ 
+        claimName: pvc1
+ 
+    - name: task-pv-storage2
+ 
+      persistentVolumeClaim:
+ 
+        claimName: pvc2
+ 
+    - name: task-pv-storage3
+ 
+      persistentVolumeClaim:
+ 
+        claimName: pvc3
+ 
+    - name: task-pv-storage4
+ 
+      persistentVolumeClaim:
+ 
+        claimName: pvc4
+ 
+    - name: task-pv-storage5
+ 
+      persistentVolumeClaim:
+ 
+        claimName: pvc6
+ 
+    - name: task-pv-storage6
+ 
+      persistentVolumeClaim:
+ 
+        claimName: pvc7
+ 
+    - name: task-pv-storage7
+ 
+      persistentVolumeClaim:
+ 
+        claimName: pvc8
+ 
+    - name: task-pv-storage8
+ 
+      persistentVolumeClaim:
+ 
+        claimName: pvc9
+ 
+    - name: task-pv-storage9
+ 
+      persistentVolumeClaim:
+ 
+        claimName: pvc10
+ 
+    - name: task-pv-storage10
+ 
+      persistentVolumeClaim:
+ 
+        claimName: pvc11
+ 
+    - name: task-pv-storage11
+ 
+      persistentVolumeClaim:
+ 
+        claimName: pvc12
+ 
+    - name: task-pv-storage12
+ 
+      persistentVolumeClaim:
+ 
+        claimName: pvc13
+ 
+    - name: task-pv-storage13
+ 
+      persistentVolumeClaim:
+ 
+        claimName: pvc14
+ 
+    - name: task-pv-storage14
+ 
+      persistentVolumeClaim:
+ 
+        claimName: pvc15
+ 
+    - name: task-pv-storage15
+ 
+      persistentVolumeClaim:
+ 
+        claimName: pvc16
+ 
+  containers:
+ 
+    - name: task-pv-container
+ 
+      image: k8s.gcr.io/nginx-slim:0.8
+ 
+      ports:
+ 
+        - containerPort: 80
+ 
+          name: "http-server"
+ 
+      volumeMounts:
+ 
+        - mountPath:"/usr/share/nginx/html"
+ 
+          name: task-pv-storage1
+        
+        - mountPath:"/usr/share/nginx"
+ 
+          name: task-pv-storage2
+        
+        - mountPath: "/usr/share"
+ 
+          name: task-pv-storage3
