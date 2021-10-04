@@ -50,14 +50,6 @@ pipeline {
                 }
         }
         }
-
-        stage('PVC Mount') {
-            steps{
-                PodBinding : {
-                    multiPodBinding(params. SKIP_PVC_Binding, params.Kubectl_Password)
-                }
-            }
-        }
    }
 }
 
