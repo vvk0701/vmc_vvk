@@ -43,10 +43,10 @@ pipeline {
         stage('POD Scale') {
         steps{
                 parallel podScale: {
-                    podScale(params. SKIP_POD_Scale, params.Kubectl_Password)
+                    podScale(params.SKIP_POD_Scale, params.Kubectl_Password)
                 },
                 pvcScale : {
-                    pvcScale(params. SKIP_POD_Scale, params.Kubectl_Password)
+                    pvcScale(params.SKIP_POD_Scale, params.Kubectl_Password)
                 }
         }
         }
