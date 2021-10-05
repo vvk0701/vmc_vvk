@@ -3,12 +3,13 @@ set -o errexit
 set -o pipefail
 set -o nounset
 set -x
-for (( j=3; j<=4; j++ ))
+for (( j=1; j<=50; j++ ))
 do
 tkg_name="tkg-cluster${j}"
 if [ $j -le 3 ]
 then
-    template=`cat "gcm150.yaml" |sed "s/{{MY_NAME}}/$tkg_name/g"`
+    tkg_ns="wcpns$j"
+    template=`cat "gcm150.yaml" |sed "s/{{MY_NAME}}/$tkg_name/g | sed "s/{{MY_NS}}/$tkg_ns/g"`
     sleep_var='600'
 elif [ $j -gt 3 ] && [ $j -lt 45 ]
 then
