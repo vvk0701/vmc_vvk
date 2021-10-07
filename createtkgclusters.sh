@@ -3,7 +3,7 @@ set -o errexit
 set -o pipefail
 set -o nounset
 set -x
-for (( j=1; j<=50; j++ ))
+for (( j=45; j<=50; j++ ))
 do
 tkg_name="tkg-cluster${j}"
 if [ $j -le 3 ]
@@ -20,8 +20,7 @@ then
     template=`cat "gcm2_alpha2_g.yaml" |sed "s/{{MY_NAME}}/$tkg_name/g"`
     sleep_var='320'
 else [ $j -ge 45 ]
-    a=3
-    a=$a+`expr 51 - $j`
+    a=`expr 55 - $j`
     tkg_ns="wcpns$a"
     template=`cat "gcm4.yaml" |sed "s/{{MY_NAME}}/$tkg_name/g" | sed "s/{{MY_NS}}/$tkg_ns/g"`
     sleep_var='420'
