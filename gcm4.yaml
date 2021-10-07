@@ -15,7 +15,7 @@ spec:
     nodePools:
     - replicas: 23
       name: np-1
-      vmClass: guarenteed-xsmall
+      vmClass: guaranteed-xsmall
       storageClass: vmc-workload-storage-policy-cluster-1
       labels:
         k1: v1
