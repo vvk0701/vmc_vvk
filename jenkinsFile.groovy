@@ -69,7 +69,7 @@ def tkgCreation(skip, Kubectl_Password){
 def podScale(skip, Kubectl_Password){
     if(!skip){
         try{
-        build job: 'Create_PodScale', parameters: [string(name: 'Kubectl_Password', value: Kubectl_Password), string(name:'tkgcluster', value: tkg-cluster1), string (name:'wcpns',value:wcpns1)]
+        build job: 'Create_PodScale', parameters: [string(name: 'Kubectl_Password', value: Kubectl_Password), string(name:'tkgcluster', value: "tkg-cluster1"), string (name:'wcpns',value:"wcpns1")]
         sleep(1000)
         }
         catch(error){
@@ -81,7 +81,7 @@ def podScale(skip, Kubectl_Password){
 def pvcScale(skip, Kubectl_Password){
     if(!skip){
         try{
-        build job: 'Create_PVC', parameters: [string(name: 'Kubectl_Password', value: Kubectl_Password), string(name: 'tkg_cluster',value:tkg-cluster2), string(name: 'wcpns', value: wcpns2)]
+        build job: 'Create_PVC', parameters: [string(name: 'Kubectl_Password', value: Kubectl_Password), string(name: 'tkg_cluster',value:"tkg-cluster2"), string(name: 'wcpns', value: "wcpns2")]
         sleep(1000)
         }
         catch(error){
