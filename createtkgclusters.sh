@@ -3,13 +3,13 @@ set -o errexit
 set -o pipefail
 set -o nounset
 set -x
-for (( j=1; j<=50; j++ ))
+for (( j=6; j<=50; j++ ))
 do
 tkg_name="tkg-cluster${j}"
-if [ $j -le 5 ]
+if [ $j -le 10 ]
 then
     tkg_ns="wcpns$j"
-    template=`cat "gcm4.yaml" | sed "s/{{MY_NAME}}/$tkg_name/g" | sed "s/{{MY_NS}}/$tkg_ns/g"`
+    template=`cat "gcm46.yaml" | sed "s/{{MY_NAME}}/$tkg_name/g" | sed "s/{{MY_NS}}/$tkg_ns/g"`
     sleep_var='420'
 elif [ $j -gt 5 ] && [ $j -lt 25 ]
 then
