@@ -17,6 +17,11 @@ pipeline {
         booleanParam(name: 'SKIP_TKG_CREATION', defaultValue: false, description: 'Boolean flag skipping TKG Creation')
  	booleanParam(name: 'SKIP_POD_Scale', defaultValue: false, description: 'Boolean flag skipping Pod Scale')
         booleanParam(name: 'SKIP_PVC_Creation', defaultValue: false, description: 'Boolean flag for skipping PVC')
+	string(name: 'VC_IP', defaultValue: '', description: 'Enter VCenter IP, Also add jenkins IP to Firewall on vCenter before Invoking')
+	string(name: 'no_of_ns', defaultValue: '10', description: 'Enter number of WCP Namespaces to be deployed, Max allowed is 10')
+	string(name: 'no_of_tkg_clusters', defaultValue: '50', description: 'Enter number of tkg clusters to be created, Max allowed is 50')
+	    
+	
     }
     
     
@@ -33,6 +38,13 @@ pipeline {
                 }
             }
         }
+	    
+	stage('WCP NS Creation'){
+            steps{
+                createNs(params.SKIP_NAMESPACE_CREATION, params.VC_IP, params.Kubectl_Password, params.no_of_ns)
+            }
+        }   
+	
     
         stage('TKG Cluster Creation'){
             steps{
@@ -51,6 +63,19 @@ pipeline {
         }
         }
    }
+}
+
+def createNs(skip, VC_IP, Kubectl_Password, no_of_ns){
+	if(!skip){
+		try{
+		build job: 'Create_WCP_NS', parameters: [string(name: 'server', value: VC_IP), string(name: 'Kubectl_Password', value: Kubectl_Password), string(name: 'no_of_ns', value: no_of_ns)]
+		sleep (200)
+		}
+		catch(error){
+			echo "Failed to Create NS" + error
+			throw new Exception("WCP NameSpace Creation failed")
+		}
+	}
 }
 
 def tkgCreation(skip, Kubectl_Password){
