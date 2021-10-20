@@ -3,11 +3,11 @@ def Kubectl_Password
 pipeline {
 
     agent {
-        label 'master'
+        label 'built-in'
     }
 
     environment {
-        branch = "master"
+        branch = "built-in"
     }
 
     parameters {
