@@ -1,4 +1,7 @@
 def Kubectl_Password
+def VC_IP
+def no_of_ns
+def no_of_tkg_clusters
 
 pipeline {
 
