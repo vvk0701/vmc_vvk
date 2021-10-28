@@ -7,7 +7,7 @@ kubectl apply -f psp.yaml
 for (( i=1; i<=800; i++ ))
 do
 echo "creating tkc namespace "
-kubectl create ns tkc-$i
+#kubectl create ns tkc-$i
 echo "create tkc pods"
 kubectl apply -f replicaset.yaml -n tkc-$i
 sleep 5
