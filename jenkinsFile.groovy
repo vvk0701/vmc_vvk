@@ -9,9 +9,13 @@ pipeline {
         label 'built-in'
     }
 
+
     environment {
-        branch = "built-in"
+        //defined credentials on jenkins master
+        git_uuid = "vcsystest"
+        branch = "main"
     }
+
 
     parameters {
         booleanParam(name: 'dryrun', defaultValue: true, description: 'Boolean flag for populating params')
@@ -42,6 +46,14 @@ pipeline {
             }
         }
 	    
+	stage('checkout from github') {
+            steps {
+                // checkout script from GITHUB
+                checkoutScript()
+            }
+        }
+
+	    
 	stage('WCP NS Creation'){
             steps{
                 createNs(params.SKIP_NAMESPACE_CREATION, params.VC_IP, params.Kubectl_Password, params.no_of_ns)
@@ -67,6 +79,33 @@ pipeline {
         }
    }
 }
+
+void checkoutScript() {
+    script {
+        //Create tmp location to run the scripts
+        tmpfile = sh(returnStdout: true, script: "mktemp -u").trim();
+    }
+
+    dir("${tmpfile}") {
+        def workspace = pwd()
+        
+        echo "PWD - ${workspace}"
+        
+        sh "git config --global http.sslVerify false"
+        
+        //automation account credentials
+        git credentialsId: "$git_uuid", url: 'https://github.com/vvk0701/vmc_vvk.git', branch: "${branch}"
+
+        script {
+            // get latest commit changeset
+            shortCommitID = sh(returnStdout: true, script: "git rev-parse --short HEAD").trim();
+        }
+        
+        echo "commit changeset is ${shortCommitID}"
+    }
+}
+
+
 
 def createNs(skip, VC_IP, Kubectl_Password, no_of_ns){
 	if(!skip){
