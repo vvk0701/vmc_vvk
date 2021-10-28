@@ -1,3 +1,5 @@
+import groovy.json.JsonSlurperClassic
+import groovy.json.JsonOutput
 import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
 
 def Kubectl_Password
