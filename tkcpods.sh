@@ -3,7 +3,7 @@ set -o errexit
 set -o pipefail
 set -o nounset
 set -x
-kubectl apply -f psp.yaml
+#kubectl apply -f psp.yaml
 for (( i=1; i<=800; i++ ))
 do
 echo "creating tkc namespace "
