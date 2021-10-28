@@ -1,3 +1,5 @@
+import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
+
 def Kubectl_Password
 def VC_IP
 def no_of_ns
@@ -12,7 +14,7 @@ pipeline {
 
     environment {
         //defined credentials on jenkins master
-        git_uuid = "vcsystest"
+        git_uuid = "vvk0701"
         branch = "main"
     }
 
