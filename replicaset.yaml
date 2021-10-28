@@ -19,3 +19,8 @@ spec:
         image: k8s.gcr.io/nginx-slim:0.8
         ports:
         - containerPort: 80
+    tolerations:
+      - key: "k1"
+        operator: "Equal"
+        value: "v1"
+        effect: "NoSchedule"
