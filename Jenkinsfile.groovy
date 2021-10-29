@@ -1,7 +1,3 @@
-import groovy.json.JsonSlurperClassic
-import groovy.json.JsonOutput
-import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
-
 def Kubectl_Password
 def VC_IP
 def no_of_ns
@@ -53,7 +49,7 @@ pipeline {
 	stage('checkout from github') {
             steps {
                 // checkout script from GITHUB
-                checkoutScript()
+                //checkoutScript()
             }
         }
 
