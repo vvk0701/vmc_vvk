@@ -46,12 +46,6 @@ pipeline {
             }
         }
 	    
-	stage('checkout from github') {
-            steps {
-                checkout script from GITHUB
-                checkoutScript()
-            }
-        }
 
 	    
 	stage('WCP NS Creation'){
@@ -80,30 +74,6 @@ pipeline {
    }
 }
 
-void checkoutScript() {
-    script {
-        //Create tmp location to run the scripts
-        tmpfile = sh(returnStdout: true, script: "mktemp -u").trim();
-    }
-
-    dir("${tmpfile}") {
-        def workspace = pwd()
-        
-        echo "PWD - ${workspace}"
-        
-        sh "git config --global http.sslVerify false"
-        
-        //automation account credentials
-        git credentialsId: "$git_uuid", url: 'https://github.com/vvk0701/vmc_vvk.git', branch: "${branch}"
-
-        script {
-            // get latest commit changeset
-            shortCommitID = sh(returnStdout: true, script: "git rev-parse --short HEAD").trim();
-        }
-        
-        echo "commit changeset is ${shortCommitID}"
-    }
-}
 
 
 
