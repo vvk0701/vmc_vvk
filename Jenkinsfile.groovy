@@ -48,8 +48,8 @@ pipeline {
 	    
 	stage('checkout from github') {
             steps {
-                // checkout script from GITHUB
-                //checkoutScript()
+                checkout script from GITHUB
+                checkoutScript()
             }
         }
 
