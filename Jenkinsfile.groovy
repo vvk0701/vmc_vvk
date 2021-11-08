@@ -80,7 +80,7 @@ pipeline {
 def createNs(skip, VC_IP, Kubectl_Password, no_of_ns){
 	if(!skip){
 		try{
-		build job: 'Create_WCP_NS', parameters: [string(name: 'server', value: VC_IP), string(name: 'Kubectl_Password', value: Kubectl_Password), string(name: 'no_of_ns', value: no_of_ns)]
+		build job: 'Create_WCP_NS', parameters: [string(name: 'server', value: VC_IP), string(name: 'no_of_ns', value: no_of_ns), string(name: 'Kubectl_Password', value: Kubectl_Password)]
 		sleep (200)
 		}
 		catch(error){
