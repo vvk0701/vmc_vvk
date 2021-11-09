@@ -106,7 +106,7 @@ def tkgCreation(skip, Kubectl_Password){
 def podScale(skip, Kubectl_Password){
     if(!skip){
         try{
-        build job: 'Create_PodScale', parameters: [string(name: 'Kubectl_Password', value: Kubectl_Password), string(name:'tkgcluster', value: "tkg-cluster1"), string (name:'wcpns',value:"wcpns1")]
+        build job: 'Create_PodScale', parameters: [string(name: 'Kubectl_Password', value: Kubectl_Password), string(name:'tkgcluster', value: "tkg-cluster50"), string (name:'wcpns',value:"wcpns6")]
         sleep(1000)
         }
         catch(error){
