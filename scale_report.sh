@@ -1,4 +1,4 @@
-KUBECTL_VSPHERE_PASSWORD=$1;
+export KUBECTL_VSPHERE_PASSWORD=$1;
 LARGETKG="tkg-cluster50";
 LARGETKGNS="wcpns6";
 kubectl vsphere login --server=192.168.123.2 -u cloudadmin@vmc.local --insecure-skip-tls-verify;
