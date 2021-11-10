@@ -79,7 +79,9 @@ pipeline {
 			scaleReport(params.SKIP_Scale_Report, params.Kubectl_Password)
    		}
 	}
-	}	
+	}
+    }
+}
 
 
 
@@ -133,6 +135,7 @@ def pvcScale(skip, Kubectl_Password){
         }
         
     }
+    }
 	
 def scaleReport(skip, Kubectl_Password){
     if(!skip){
@@ -145,4 +148,3 @@ def scaleReport(skip, Kubectl_Password){
         
     }
     }
-}
