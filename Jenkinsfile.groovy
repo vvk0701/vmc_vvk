@@ -27,6 +27,7 @@ pipeline {
         booleanParam(name: 'SKIP_TKG_CREATION', defaultValue: false, description: 'Boolean flag skipping TKG Creation')
  	booleanParam(name: 'SKIP_POD_Scale', defaultValue: false, description: 'Boolean flag skipping Pod Scale')
         booleanParam(name: 'SKIP_PVC_Creation', defaultValue: false, description: 'Boolean flag for skipping PVC')
+	booleanParam(name: 'SKIP_Scale_Report', defaultValue: false, description: 'Boolean flag for skipping Report')
 	    
 	
     }
@@ -62,7 +63,7 @@ pipeline {
         }
     
         stage('POD Scale') {
-        steps{
+        	steps{
                 parallel podScale: {
                     podScale(params.SKIP_POD_Scale, params.Kubectl_Password)
                 },
@@ -71,8 +72,14 @@ pipeline {
                 }
         }
         }
-   }
-}
+	   
+	stage('Generate TKG Scale Report') {
+		steps{
+		scaleReport: {
+			scaleReport(params.SKIP_Scale_Report, params.Kubectl_Password)
+   		}
+	}
+	}	
 
 
 
@@ -123,6 +130,17 @@ def pvcScale(skip, Kubectl_Password){
         }
         catch(error){
             echo "Failed to Scale PVC" + error
+        }
+        
+    }
+	
+def scaleReport(skip, Kubectl_Password){
+    if(!skip){
+        try{
+        build job: 'GetTKGScaleReport', parameters: [string(name: 'Kubectl_Password', value: Kubectl_Password)]
+        }
+        catch(error){
+            echo "Failed to Generate Report for scale" + error
         }
         
     }
