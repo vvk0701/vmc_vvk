@@ -3,12 +3,17 @@ LARGETKG="tkg-cluster50";
 LARGETKGNS="wcpns6";
 kubectl vsphere login --server=192.168.123.2 -u cloudadmin@vmc.local --insecure-skip-tls-verify > /dev/null;
 kubectl config use-context "192.168.123.2";
+echo "=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#>"
 
 echo "Number of NameSpaces: "
 kubectl get ns | grep wcpns | wc -l;
 
 echo "Number of TKC Clusters: "
 kubectl get tkc -A | grep tkg | wc -l;
+
+echo "+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#"
+kubectl get tkc -A;
+echo "+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#"
 
 echo "Login to Large TKC Cluster"
 
@@ -24,3 +29,5 @@ kubectl vsphere login --server=192.168.123.2 -u cloudadmin@vmc.local --insecure-
 
 echo "Number of PVC's in tkg-cluster6 of NS wcpns4"
 kubectl get pvc -A | wc -l;
+
+
