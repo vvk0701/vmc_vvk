@@ -145,3 +145,4 @@ def scaleReport(skip, Kubectl_Password){
         
     }
     }
+}
