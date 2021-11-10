@@ -75,9 +75,7 @@ pipeline {
 	   
 	stage('Generate TKG Scale Report') {
 		steps{
-		scaleReport: {
 			scaleReport(params.SKIP_Scale_Report, params.Kubectl_Password)
-   		}
 	}
 	}
     }
