@@ -2,6 +2,7 @@ export KUBECTL_VSPHERE_PASSWORD=$1;
 LARGETKG="tkg-cluster50";
 LARGETKGNS="wcpns6";
 kubectl vsphere login --server=192.168.123.2 -u cloudadmin@vmc.local --insecure-skip-tls-verify;
+kubectl config use-context "192.168.123.2";
 
 echo "Number of NameSpaces: "
 kubectl get ns | grep wcpns | wc -l;
