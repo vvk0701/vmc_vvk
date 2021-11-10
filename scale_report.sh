@@ -4,7 +4,7 @@ LARGETKGNS="wcpns6";
 kubectl vsphere login --server=192.168.123.2 -u cloudadmin@vmc.local --insecure-skip-tls-verify > /dev/null;
 kubectl config use-context "192.168.123.2";
 
-echo -e '\033[1mNumber of NameSpaces: \033[0m'
+echo "Number of NameSpaces: "
 kubectl get ns | grep wcpns | wc -l;
 
 echo "Number of TKC Clusters: "
