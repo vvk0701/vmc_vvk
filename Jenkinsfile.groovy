@@ -23,7 +23,7 @@ pipeline {
         string(name: 'Kubectl_Password', defaultValue: '', description: 'Enter Password from Cloudadmin user')
 	string(name: 'no_of_ns', defaultValue: '10', description: 'Enter number of WCP Namespaces to be deployed, Max allowed is 10')
 	string(name: 'no_of_tkg_clusters', defaultValue: '50', description: 'Enter number of tkg clusters to be created, Max allowed is 50')
-        booleanParam(name: 'SKIP_NAMESPACE_CREATION', defaultValue: true, description: 'Boolean flag to skip NS Creation')
+        booleanParam(name: 'SKIP_NAMESPACE_CREATION', defaultValue: false, description: 'Boolean flag to skip NS Creation')
         booleanParam(name: 'SKIP_TKG_CREATION', defaultValue: false, description: 'Boolean flag skipping TKG Creation')
  	booleanParam(name: 'SKIP_POD_Scale', defaultValue: false, description: 'Boolean flag skipping Pod Scale')
         booleanParam(name: 'SKIP_PVC_Creation', defaultValue: false, description: 'Boolean flag for skipping PVC')
