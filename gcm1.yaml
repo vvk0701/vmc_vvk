@@ -1,7 +1,7 @@
 apiVersion: run.tanzu.vmware.com/v1alpha2
 kind: TanzuKubernetesCluster
 metadata:
-  name: 1cp1w
+  name: cp1w1
   namespace: wcpns5
 spec:
   topology:
