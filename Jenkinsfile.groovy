@@ -61,6 +61,7 @@ pipeline {
                 tkgCreation(params.SKIP_TKG_CREATION, params.Kubectl_Password)
             }
         }
+	    
     
         stage('POD Scale') {
         	steps{
@@ -68,7 +69,7 @@ pipeline {
                     podScale(params.SKIP_POD_Scale, params.Kubectl_Password)
                 },
                 pvcScale : {
-                    pvcScale(params.SKIP_POD_Scale, params.Kubectl_Password)
+                    pvcScale(params.SKIP_PVC_Creation, params.Kubectl_Password)
                 }
         }
         }
@@ -101,7 +102,7 @@ def tkgCreation(skip, Kubectl_Password){
     if(!skip){
         try{
         build job: 'Create_TKG_Cluster', parameters: [string(name: 'Kubectl_Password', value: Kubectl_Password)]
-        sleep(600)
+        sleep(1600)
         }
         catch(error){
             echo "Failed to Create TKG Clusters" + error
