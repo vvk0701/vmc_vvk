@@ -26,7 +26,7 @@ kubectl get pods -A | grep "nginx" | grep "Running" | wc -l;
 echo "Number of Nginx pods in Pending state: "
 kubectl get pods -A | grep "nginx" | grep "Pending" | wc -l;
 
-kubectl vsphere login --server=192.168.123.2 -u cloudadmin@vmc.local --insecure-skip-tls-verify --tanzu-kubernetes-cluster-name tkg-cluster2 --tanzu-kubernetes-cluster-namespace wcpns2 > /dev/null 
+kubectl vsphere login --server=192.168.123.2 -u cloudadmin@vmc.local --insecure-skip-tls-verify --tanzu-kubernetes-cluster-name tkg-cluster48 --tanzu-kubernetes-cluster-namespace wcpns8 > /dev/null 
 
 echo "Number of PVC's in tkg-cluster6 of NS wcpns4"
 kubectl get pvc -A | wc -l;
