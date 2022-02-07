@@ -1,6 +1,6 @@
 export KUBECTL_VSPHERE_PASSWORD=$1;
-LARGETKG="tkg-cluster50";
-LARGETKGNS="wcpns6";
+LARGETKG="tkg-cluster48";
+LARGETKGNS="wcpns8";
 echo "Large TKG cluster is $LARGETKG deployed in $LARGETKGNS";
 kubectl vsphere login --server=192.168.123.2 -u cloudadmin@vmc.local --insecure-skip-tls-verify > /dev/null;
 kubectl config use-context "192.168.123.2";
