@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: n-service
+  namespace: tkc1
+spec:
+  selector:
+    run: my-nginx
+  ports:
+    - port: 80
+      targetPort: 80
+  type: LoadBalancer
