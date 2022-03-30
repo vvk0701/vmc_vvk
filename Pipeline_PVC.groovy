@@ -45,9 +45,9 @@ pipeline {
                
   
   def createPvc(Kubectl_Password, ns_count, SV_Hostname){
-	  	int ns_count = ns_count.toInteger()
+	  	int count = ns_count.toInteger()
 		try{
-		for (int i=1; i<ns_count; i++)
+		for (int i=1; i<count; i++)
 			{
 			def wcpns='wcpns'+i
 			build job: 'Create_PVC', parameters: [string(name: 'Kubectl_Password', value: Kubectl_Password), string(name: 'wcpns', value: wcpns), string(name: 'SV_Hostname', value: SV_Hostname)]
