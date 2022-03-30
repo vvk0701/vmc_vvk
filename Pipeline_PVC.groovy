@@ -34,9 +34,12 @@ pipeline {
 	    
 
 	    
-	stage('WCP NS Creation'){
+	stage('PVC Creation:'){
             steps{
-                createPvc(params.Kubectl_Password, params.wcpns, params.SV_Hostname)
+		    for (int i=1; i<10; i++){
+    			def wcpns='wcpns'+i
+			createPvc(params.Kubectl_Password, wcpns, params.SV_Hostname)
+		    }
             }
         }  
       
