@@ -36,7 +36,7 @@ pipeline {
 	    
 	stage('PVC Creation:'){
 			    steps{
-				createPvc(params.Kubectl_Password, ns_count, params.SV_Hostname)
+				createPvc(params.Kubectl_Password, params.ns_count, params.SV_Hostname)
 			    }
 		    }
 		    } 
