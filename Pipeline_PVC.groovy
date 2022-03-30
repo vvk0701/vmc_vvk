@@ -45,6 +45,7 @@ pipeline {
                
   
   def createPvc(Kubectl_Password, ns_count, SV_Hostname){
+	  	int ns_count = ns_count.toInteger()
 		try{
 		for (int i=1; i<ns_count; i++)
 			{
