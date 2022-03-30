@@ -42,7 +42,6 @@ pipeline {
 		    } 
       
     }
-}
                
   
   def createPvc(Kubectl_Password, ns_count, SV_Hostname){
