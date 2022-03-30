@@ -1,5 +1,5 @@
 def Kubectl_Password
-def wcpns
+def ns_count
 def SV_Hostname
 
 pipeline {
@@ -13,7 +13,7 @@ pipeline {
         booleanParam(name: 'dryrun', defaultValue: true, description: 'Boolean flag for populating params')
 	      string(name: 'SV_Hostname', defaultValue: '', description: 'Enter Supervisor Cluster Hostname')
         string(name: 'Kubectl_Password', defaultValue: '', description: 'Enter Password from Cloudadmin user')
-	      string(name: 'wcpns', defaultValue: '10', description: 'Enter  WCP Namespace Where PVCs have to created')
+	      integer(name: 'ns_count', defaultValue: '10', description: 'Enter  WCP Namespace Where PVCs have to created')
 		    	     
     }
     
@@ -36,7 +36,7 @@ pipeline {
 	    
 	stage('PVC Creation:'){
             steps{
-		    for (int i=1; i<10; i++){
+		    for (int i=1; i<ns_count; i++){
     			def wcpns='wcpns'+i
 			createPvc(params.Kubectl_Password, wcpns, params.SV_Hostname)
 		    }
