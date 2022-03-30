@@ -41,6 +41,7 @@ pipeline {
         }  
       
     }
+}
                
   
   def createPvc(Kubectl_Password, wcpns, SV_Hostname){
@@ -53,5 +54,4 @@ pipeline {
 			throw new Exception("PVC Scale Across Namespaces Failed")
 		}
 	}
-}
 	
