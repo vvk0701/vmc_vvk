@@ -35,10 +35,8 @@ pipeline {
 
 	    
 	stage('PVC Creation:'){
-		    for (int i=1; i<ns_count; i++){
-    			def wcpns='wcpns'+i
 			    steps{
-				createPvc(params.Kubectl_Password, wcpns, params.SV_Hostname)
+				createPvc(params.Kubectl_Password, ns_count, params.SV_Hostname)
 			    }
 		    }
 		    } 
@@ -47,10 +45,14 @@ pipeline {
 }
                
   
-  def createPvc(Kubectl_Password, wcpns, SV_Hostname){
+  def createPvc(Kubectl_Password, ns_count, SV_Hostname){
 		try{
-		build job: 'Create_PVC', parameters: [string(name: 'Kubectl_Password', value: Kubectl_Password), string(name: 'wcpns', value: wcpns), string(name: 'SV_Hostname', value: SV_Hostname)]
-		sleep (60)
+		for (int i=1; i<ns_count; i++)
+			{
+			def wcpns='wcpns'+i
+			build job: 'Create_PVC', parameters: [string(name: 'Kubectl_Password', value: Kubectl_Password), string(name: 'wcpns', value: wcpns), string(name: 'SV_Hostname', value: SV_Hostname)]
+			sleep (60)
+			}
 		}
 		catch(error){
 			echo "Failed to PVCS" + error
