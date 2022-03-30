@@ -37,7 +37,9 @@ pipeline {
 	stage('PVC Creation:'){
 		    for (int i=1; i<ns_count; i++){
     			def wcpns='wcpns'+i
-			createPvc(params.Kubectl_Password, wcpns, params.SV_Hostname)
+			    steps{
+				createPvc(params.Kubectl_Password, wcpns, params.SV_Hostname)
+			    }
 		    }
 		    } 
       
