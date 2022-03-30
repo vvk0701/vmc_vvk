@@ -2,6 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: {{pvc_name}}
+  namespace: {{ns}}
   annotations:
     volume.beta.kubernetes.io/storage-class: vmc-workload-storage-policy-cluster-1
   labels:
