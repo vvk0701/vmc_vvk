@@ -13,7 +13,8 @@ pipeline {
         booleanParam(name: 'dryrun', defaultValue: true, description: 'Boolean flag for populating params')
 	      string(name: 'SV_Hostname', defaultValue: '', description: 'Enter Supervisor Cluster Hostname')
         string(name: 'Kubectl_Password', defaultValue: '', description: 'Enter Password from Cloudadmin user')
-	      string(name: 'wcpns', defaultValue: '10', description: 'Enter  WCP Namespace Where PVCs have to created'
+	      string(name: 'wcpns', defaultValue: '10', description: 'Enter  WCP Namespace Where PVCs have to created')
+		    	     
     }
     
     
