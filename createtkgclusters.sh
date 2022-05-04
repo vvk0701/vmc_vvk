@@ -4,7 +4,7 @@ set -o pipefail
 set -o nounset
 set -x
 start=$1
-end=$2
+end=48
 for (( j=$start; j<=$end; j++ ))
 do
 tkg_name="tkg-cluster${j}"
