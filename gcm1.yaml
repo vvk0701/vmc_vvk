@@ -11,12 +11,12 @@ spec:
           name: v1.20.7---vmware.1-tkg.1.7fb9067
       replicas: 1
       vmClass: best-effort-medium
-      storageClass: NFS-Policy
+      storageClass: nfs-policy
     nodePools:
     - replicas: 1
       name: np-1
       vmClass: best-effort-xsmall
-      storageClass: NFS-Policy
+      storageClass: nfs-policy
       labels:
         k1: v1
         k2: v2
