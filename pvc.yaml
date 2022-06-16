@@ -4,7 +4,7 @@ metadata:
   name: {{pvc_name}}
   namespace: {{ns}}
   annotations:
-    volume.beta.kubernetes.io/storage-class: vmc-workload-storage-policy-cluster-1
+    volume.beta.kubernetes.io/storage-class: nfs-policy
   labels:
 spec:
   accessModes:
@@ -12,4 +12,4 @@ spec:
   resources:
     requests:
       storage: 10Mi
-  storageClassName: vmc-workload-storage-policy-cluster-1
+  storageClassName: nfs-policy
