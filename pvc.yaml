@@ -4,7 +4,7 @@ metadata:
   name: {{pvc_name}}
   namespace: {{ns}}
   annotations:
-    volume.beta.kubernetes.io/storage-class: nfs-policy
+    volume.beta.kubernetes.io/storage-class: vsan-policy
   labels:
 spec:
   accessModes:
@@ -12,4 +12,4 @@ spec:
   resources:
     requests:
       storage: 10Mi
-  storageClassName: nfs-policy
+  storageClassName: vsan-policy
