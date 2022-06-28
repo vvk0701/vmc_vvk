@@ -7,7 +7,7 @@ export server="$server"
 export number_of_namespace="$no_of_ns"
 echo $password
  
-sp=`dcli +show-unreleased +server $server +skip-server-verification +username $vc_sso_username  +password $password com vmware vcenter storage policies list | grep "nfs-policy" | cut -d'|' -f4`
+sp=`dcli +show-unreleased +server $server +skip-server-verification +username $vc_sso_username  +password $password com vmware vcenter storage policies list | grep "vmc-workload-storage-policy-cluster-1" | cut -d'|' -f4`
 echo "Storage policy ID = $sp"
  
 cluster_id=`dcli +show-unreleased +server $server +skip-server-verification +username $vc_sso_username +password $password com vmware vcenter cluster list | grep ${cluster_name} | grep True | cut -d'|' -f3`
