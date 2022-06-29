@@ -1,6 +1,6 @@
 #!/bin/bash
 export vc_sso_username=cloudadmin@vmc.local
-export namespace_prefix='wcpns'
+export namespace_prefix='testns'
 export cluster_name='Cluster-1'
 export password="$password"
 export server="$server"
