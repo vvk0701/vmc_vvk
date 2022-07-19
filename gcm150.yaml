@@ -11,16 +11,16 @@ spec:
           name: v1.22.9---vmware.1-tkg.1.cc71bc8
       replicas: 3
       vmClass: best-effort-large
-      storageClass: vmc-workload-storage-policy-cluster-1
+      storageClass: nfs-policy
     nodePools:
     - replicas: 75
       name: np-1
       vmClass: best-effort-xsmall
-      storageClass: vmc-workload-storage-policy-cluster-1
+      storageClass: nfs-policy
     - replicas: 75
       name: np-2
       vmClass: best-effort-xsmall
-      storageClass: vmc-workload-storage-policy-cluster-1
+      storageClass: nfs-policy
   settings:
     network:
       cni:
