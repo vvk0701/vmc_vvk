@@ -20,7 +20,7 @@ spec:
     - replicas: 75
       name: np-2
       vmClass: best-effort-small
-      storageClass: nfs-policy
+      storageClass: vSAN Default Storage Policy
   settings:
     network:
       cni:
