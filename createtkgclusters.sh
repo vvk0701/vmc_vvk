@@ -10,7 +10,7 @@ do
 tkg_name="tkg-cluster${j}"
 if [ $j -le 5 ]
 then
-    tkg_ns="testns$j"
+    tkg_ns="wcpns$j"
     template=`cat "gcm150.yaml" | sed "s/{{MY_NAME}}/$tkg_name/g" | sed "s/{{MY_NS}}/$tkg_ns/g"`
     sleep_var='420'
 elif [ $j -gt 5 ] && [ $j -lt 25 ]
@@ -23,7 +23,7 @@ then
     sleep_var='240'
 else [ $j -ge 47 ]
     a=`expr 56 - $j`
-    tkg_ns="testns$a"
+    tkg_ns="wcpns$a"
     template=`cat "gcm150.yaml" | sed "s/{{MY_NAME}}/$tkg_name/g" | sed "s/{{MY_NS}}/$tkg_ns/g"`
     sleep_var='900'
 fi
