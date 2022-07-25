@@ -11,7 +11,7 @@ spec:
           name: v1.21.2---vmware.1-tkg.1.ee25d55 
       replicas: 3
       vmClass: best-effort-large
-      storageClass: vsan-policy
+      storageClass: nfs-policy
     nodePools:
     - replicas: 75
       name: np-1
