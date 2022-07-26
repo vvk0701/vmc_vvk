@@ -16,7 +16,7 @@ spec:
     - replicas: 75
       name: np-1
       vmClass: best-effort-small
-      storageClass: vSAN Default Storage Policy
+      storageClass: vsan default storage policy
     - replicas: 75
       name: np-2
       vmClass: best-effort-small
