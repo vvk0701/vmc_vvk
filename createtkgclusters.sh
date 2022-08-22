@@ -11,7 +11,7 @@ tkg_name="tkg-cluster${j}"
 if [ $j -le 5 ]
 then
     tkg_ns="wcpns$j"
-    template=`cat "gcm46.yaml" | sed "s/{{MY_NAME}}/$tkg_name/g" | sed "s/{{MY_NS}}/$tkg_ns/g"`
+    template=`cat "test.yaml" | sed "s/{{MY_NAME}}/$tkg_name/g" | sed "s/{{MY_NS}}/$tkg_ns/g"`
     sleep_var='420'
 elif [ $j -gt 5 ] && [ $j -lt 25 ]
 then
