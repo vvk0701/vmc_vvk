@@ -8,7 +8,7 @@ spec:
     controlPlane:
       tkr:
         reference:
-          name: v1.20.7---vmware.1-tkg.1.7fb9067
+          name: v1.22.9---vmware.1-tkg.1.cc71bc8
       replicas: 3
       vmClass: best-effort-medium
       storageClass: nfs-policy
