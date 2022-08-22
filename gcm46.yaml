@@ -30,7 +30,7 @@ spec:
       storageClass: vmc-workload-storage-policy-cluster-1
     network:
       cni:
-        name: antrea
+        name: calico
       services:
         cidrBlocks:
         - 198.51.100.0/12
