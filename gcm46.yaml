@@ -27,8 +27,7 @@ spec:
     - replicas: 2
       name: np-2
       vmClass: best-effort-xsmall
-      storageClass: nfs-policy
-  settings:
+      storageClass: vmc-workload-storage-policy-cluster-1
     network:
       cni:
         name: antrea
