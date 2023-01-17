@@ -1,0 +1,30 @@
+apiVersion: run.tanzu.vmware.com/v1alpha2
+kind: TanzuKubernetesCluster
+metadata:
+  name: tkg1
+  namespace: wcpns1
+spec:
+  topology:
+    controlPlane:
+      tkr:
+        reference:
+          name: v1.21.6---vmware.1-tkg.1.b3d708a 
+      replicas: 1
+      vmClass: best-effort-small
+      storageClass: vmc-workload-storage-policy-cluster-1
+    nodePools:
+    - replicas: 3
+      name: np-1
+      vmClass: best-effort-xsmall
+      storageClass: vmc-workload-storage-policy-cluster-1
+  settings:
+    network:
+      cni:
+        name: calico
+      services:
+        cidrBlocks:
+        - 198.51.100.0/12
+      pods:
+        cidrBlocks:
+        - 192.0.2.0/16
+      serviceDomain: cluster.local
