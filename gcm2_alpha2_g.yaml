@@ -8,7 +8,7 @@ spec:
     controlPlane:
       tkr:
         reference:
-          name:  v1.22.9---vmware.1-tkg.1.cc71bc8 
+          name:  v1.24.9---vmware.1-tkg.4 
       replicas: 1
       vmClass: best-effort-medium
       storageClass: vmc-workload-storage-policy-cluster-1
