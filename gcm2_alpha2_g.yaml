@@ -8,7 +8,7 @@ spec:
     controlPlane:
       tkr:
         reference:
-          name:  v1.24.11---vmware.1-fips.1-tkg.1
+          name:  v1.25.7---vmware.3-fips.1-tkg.1
       replicas: 1
       vmClass: best-effort-medium
       storageClass: vmc-workload-storage-policy-cluster-1
