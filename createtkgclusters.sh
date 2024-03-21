@@ -17,7 +17,7 @@ elif [ $j -gt 9 ] && [ $j -lt 25 ]
 then
     template=`cat "gcm2_alpha2.yaml" |sed "s/{{MY_NAME}}/$tkg_name/g"`
     sleep_var='240'
-elif [ $j -gt 24 ] && [ $j -lt 48 ]
+elif [ $j -gt 24 ] && [ $j -lt 49 ]
 then
     template=`cat "gcm2_alpha2_g.yaml" |sed "s/{{MY_NAME}}/$tkg_name/g"`
     sleep_var='240'
