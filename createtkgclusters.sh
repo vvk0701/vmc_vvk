@@ -12,7 +12,7 @@ if [ $j -le 9 ]
 then
     tkg_ns="wcpns$j"
     template=`cat "test.yaml" | sed "s/{{MY_NAME}}/$tkg_name/g" | sed "s/{{MY_NS}}/$tkg_ns/g"`
-    sleep_var='420'
+    sleep_var='60'
 elif [ $j -gt 9 ] && [ $j -lt 25 ]
 then
     template=`cat "gcm2_alpha2.yaml" |sed "s/{{MY_NAME}}/$tkg_name/g"`
